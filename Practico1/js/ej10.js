@@ -11,5 +11,5 @@ function showResult(){
     number2 = Number(document.querySelector("#nbr2").value);
     result = ((number1 * number2) / 100) + number1;
 
-    document.querySelector("#pResult").innerHTML = `Resultado: ${result}`;
+    document.querySelector("#pResult").innerHTML = `Resultado + Recarga: ${result}`;
 };
