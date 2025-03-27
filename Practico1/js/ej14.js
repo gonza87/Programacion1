@@ -6,6 +6,6 @@ let result;
 document.querySelector("#btnCount").addEventListener("click", showCounter);
 
 function showCounter(){
-    counter+=3;
+    counter +=3;
     document.querySelector("#pCount").innerHTML = `Clicks: ${counter}`;
 };
