@@ -2,7 +2,6 @@
 
 let number;
 let msj;
-let result;
 
 document.querySelector("#btnShow").addEventListener("click", showResult);
 

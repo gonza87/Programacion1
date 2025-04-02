@@ -1,7 +1,7 @@
 /* Ingresar un número y dar aviso, si el número es mayor a 10 mostrar un aviso, "mayor que diez". */
 
 let number;
-let result;
+
 let msj;
 
 document.querySelector("#btnShow").addEventListener("click", showResult);
