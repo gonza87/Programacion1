@@ -7,7 +7,6 @@ let result;
 document.querySelector("#btnShow").addEventListener("click", showResult);
 
 function showResult() {
-  result = "";
   number = Number(document.querySelector("#nbr").value);
 
   if (number >= 0) {
