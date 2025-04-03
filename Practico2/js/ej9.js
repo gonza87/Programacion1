@@ -15,3 +15,38 @@ Abrigarse Mucho
 Ir al trabajo
 
 Prestar atención a que las tres acciones no tienen vinculación entre sí. */
+
+let temp;
+let msj;
+let day;
+let result;
+
+document.querySelector("#btnShow").addEventListener("click", showResult);
+
+function showResult() {
+  temp = Number(document.querySelector("#nbr").value);
+  console.log(temp)
+  if (temp < 10) {
+    msj = "abrigarse mucho";
+  } else if (temp > 20) {
+    msj = "ponerse ropa cómoda";
+  } else {
+    msj = "abrigo moderado";
+  }
+  day = document.querySelector("#selectDay").value;
+
+  switch (day) {
+    case "lu":
+    case "ma":
+    case "mi":
+    case "ju":
+    case "vi":
+    case "sa":
+        result = `Levantarse <br/> ${msj} <br /> Ir al trabajo`
+      break;
+    case "do":
+        result = `Levantarse <br/> ${msj} <br /> quedarse en casa`
+      break;
+  }
+  document.querySelector("#pResult").innerHTML = result;
+}
