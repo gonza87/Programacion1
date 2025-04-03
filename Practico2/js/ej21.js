@@ -18,8 +18,13 @@ function showResult() {
     //console.log(subTotal)
     //console.log(subTotal/7)
     month = subTotal / 7 / 12;
+    document.querySelector("#pResult").innerHTML = `Pago inicial: USD ${first} <br /> Pago mensual por 7 años: USD ${month}`;
+  }else{
+    first = (priceHouse * 30) / 100;
+    subTotal = priceHouse - first;
+    month = subTotal / 12;
+    document.querySelector("#pResult").innerHTML = `Pago inicial: USD ${first} <br /> Pago mensual por 1 año: USD ${month}`;
   }
-  document.querySelector(
-    "#pResult"
-  ).innerHTML = `Pago inicial: ${first} <br /> Pago mensual por 7 años: ${month}`;
+  
+
 }
