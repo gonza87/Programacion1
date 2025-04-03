@@ -3,7 +3,7 @@ La cuenta comenzará en cero y se incrementará en uno con cada presión del bot
 
 
 let counter = 0;
-let result;
+
 
 document.querySelector("#btnCount").addEventListener("click", showCounter);
 

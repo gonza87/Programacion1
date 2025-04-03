@@ -3,12 +3,18 @@ Al presionar otro botón mostrar el resultado final acumulado. */
 
 
 let acumulador = 0;
-let result;
 
-document.querySelector("#btnCount").addEventListener("click", showCounter);
 
-function showCounter(){
+document.querySelector("#btnCount").addEventListener("click", Counter);
+document.querySelector("#btnShow").addEventListener("click", showCounter);
+
+function Counter(){
     acumulador += Number(document.querySelector("#nbr").value);
     
-    document.querySelector("#pCount").innerHTML = `Total acumulado: ${acumulador}`;
+    
 };
+
+function showCounter(){
+
+     document.querySelector("#pCount").innerHTML = `Total acumulado: ${acumulador}`;
+}
