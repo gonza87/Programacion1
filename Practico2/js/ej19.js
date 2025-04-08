@@ -26,7 +26,6 @@ function showResult() {
   } else {
     document.querySelector("#btnShow").setAttribute("disabled", "disabled");
     document.querySelector("#btnShow").setAttribute("value", "Finalizado");
-    console.log("test");
   }
 
   document.querySelector(
