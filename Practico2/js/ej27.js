@@ -36,10 +36,12 @@ function jugadorOne() {
 
 function jugadorTwo() {
   numJuga2 = Number(document.querySelector("#nbr2").value);
+  
   let difNumeros;
 
   if (numJuga2 !== undefined && numJuga2 > 0 && numJuga2 <= 100) {
     contIntentos++;
+    document.querySelector("#nbr2").value = "";
 
     if (numJuga1 > numJuga2) {
       difNumeros = numJuga1 - numJuga2;
@@ -57,11 +59,14 @@ function jugadorTwo() {
   } else if (difNumeros >= 1 && difNumeros <= 4) {
     document.querySelector("#pResult").innerHTML = "muy pero muy cerca";
   } else if (numJuga1 === numJuga2) {
-    console.log("ganaste");
+    document.querySelector("#nbr2").setAttribute("disabled", "disabled");
+    document.querySelector("#btnShow2").setAttribute("disabled", "disabled");
     document.querySelector(
       "#pResult"
     ).innerHTML = `Ganaste!!! Intentos realizado ${contIntentos}`;
   } else {
+    contIntentos++;
+    document.querySelector("#nbr2").value = "";
     document.querySelector("#pResult").innerHTML = `Ingrese numero valido`;
   }
 }
