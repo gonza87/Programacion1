@@ -17,28 +17,24 @@ let numJuga1;
 let contIntentos = 0;
 let numJuga2;
 
-
 document.querySelector("#btnShow1").addEventListener("click", jugadorOne);
 document.querySelector("#btnShow2").addEventListener("click", jugadorTwo);
 
 function jugadorOne() {
   numJuga1 = Number(document.querySelector("#nbr1").value);
-  document.querySelector("#pResult").innerHTML =""
+  document.querySelector("#pResult").innerHTML = "";
   if (numJuga1 !== undefined && numJuga1 > 0 && numJuga1 <= 100) {
     document.querySelector("#nbr1").setAttribute("disabled", "disabled");
     document.querySelector("#nbr1").value = "";
     document.querySelector("#btnShow1").setAttribute("disabled", "disabled");
     document.querySelector("#nbr2").removeAttribute("disabled", "disabled");
     document.querySelector("#btnShow2").removeAttribute("disabled", "disabled");
-    
   } else {
     document.querySelector("#pResult").innerHTML = "ingrese numero valido";
-    
   }
 }
 
 function jugadorTwo() {
-  
   numJuga2 = Number(document.querySelector("#nbr2").value);
   let difNumeros;
 
@@ -47,32 +43,25 @@ function jugadorTwo() {
 
     if (numJuga1 > numJuga2) {
       difNumeros = numJuga1 - numJuga2;
-    }
-    else if (numJuga2 > numJuga1) {
+    } else if (numJuga2 > numJuga1) {
       difNumeros = numJuga2 - numJuga1;
     }
   }
 
-    if (difNumeros > 15) {
-   
-    document.querySelector("#pResult").innerHTML = "estas lejos"
-  }
-  if (difNumeros >= 10 && difNumeros <= 15) {
-    
-    document.querySelector("#pResult").innerHTML = "te estas acercando"
-    
-  }
-  if (difNumeros >= 5 && difNumeros <= 9) {
-    
+  if (difNumeros > 15) {
+    document.querySelector("#pResult").innerHTML = "estas lejos";
+  } else if (difNumeros >= 10 && difNumeros <= 15) {
+    document.querySelector("#pResult").innerHTML = "te estas acercando";
+  } else if (difNumeros >= 5 && difNumeros <= 9) {
     document.querySelector("#pResult").innerHTML = "cada vez más cerca";
-  } 
-  if(difNumeros <=1 && difNumeros <=4){
-    
+  } else if (difNumeros >= 1 && difNumeros <= 4) {
     document.querySelector("#pResult").innerHTML = "muy pero muy cerca";
+  } else if (numJuga1 === numJuga2) {
+    console.log("ganaste");
+    document.querySelector(
+      "#pResult"
+    ).innerHTML = `Ganaste!!! Intentos realizado ${contIntentos}`;
+  } else {
+    document.querySelector("#pResult").innerHTML = `Ingrese numero valido`;
   }
-  if(numJuga1 === numJuga2){
-    console.log("ganaste")
-    document.querySelector("#pResult").innerHTML = `Ganaste!!! Intentos realizado ${contIntentos}`;
-  } 
-   
 }
