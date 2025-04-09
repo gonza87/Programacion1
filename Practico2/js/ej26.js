@@ -4,47 +4,35 @@ Ej.: 9 noches pagadas con tarjeta -> hay 3 noches de regalo, el usuario se hospe
 
 document.querySelector("#btnShow").addEventListener("click", shorResult);
 
-function shorResult (){
-    let cantNoches;
-    let totalNoches;
-    let nochesRegalo =0;
-    let medioPago;
-    let msj;
-    let totalPago;
+function shorResult() {
+  let cantNoches;
+  let totalNoches;
+  let nochesRegalo = 0;
+  let medioPago;
+  let msj;
+  let totalPago;
 
-    cantNoches = Number(document.querySelector("#nbr").value);
-    medioPago = document.querySelector("#selct").value;
+  cantNoches = Number(document.querySelector("#nbr").value);
+  medioPago = document.querySelector("#selct").value;
 
-    if (cantNoches >= 3 && cantNoches <7){
-        nochesRegalo = 1;
-        totalNoches = cantNoches + nochesRegalo;
-        totalPago = cantNoches * 40;
-
+  if (cantNoches >= 3 && cantNoches < 7) {
+    nochesRegalo = 1;
+    totalNoches = cantNoches + nochesRegalo;
+    totalPago = cantNoches * 40;
+  } else if (cantNoches >= 7) {
+    if (medioPago === "Tarjeta") {
+      nochesRegalo = 3;
+    } else {
+      nochesRegalo = 2;
     }
 
-    else if(cantNoches >= 7){
-        if(medioPago === "Tarjeta"){
-            nochesRegalo = 3;
-            
-        }
-        else{
-            nochesRegalo = 2;
-        }
-
-        totalNoches = cantNoches + nochesRegalo;
-        totalPago = cantNoches * 40;
-
-    }
-    else{
-        totalPago = cantNoches * 40;
-        
-        
-
-    }
-    msj = `${cantNoches} noches pagadas con ${medioPago} <br> Hay ${nochesRegalo} noches de regalo <br> El cliente se hospeda ${totalNoches} noches <br> El costo total son: $${totalPago}`;
-document.querySelector("#pResult").innerHTML = msj;
-
-
+    totalNoches = cantNoches + nochesRegalo;
+    totalPago = cantNoches * 40;
+  } else {
+    totalPago = cantNoches * 40;
+  }
+  msj = `${cantNoches} noches pagadas con ${medioPago} <br> Hay ${nochesRegalo} noches de regalo <br> El cliente se hospeda ${totalNoches} noches <br> El costo total son: $${totalPago}`;
+  document.querySelector("#pResult").innerHTML = msj;
 }
 
 /* hospeda por un mínimo de 3 noches 1 noche mas
