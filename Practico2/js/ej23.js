@@ -18,6 +18,7 @@ Luego de cada ingreso actualizar la información mostrando cuántos perdieron (<
     
     if(notaIngresada >0 && notaIngresada <=100){
         contAlumnosCargados ++
+        acumulaNotas += notaIngresada;
         if(notaIngresada < minNota){
             minNota = notaIngresada;
         }
@@ -37,7 +38,7 @@ Luego de cada ingreso actualizar la información mostrando cuántos perdieron (<
             muyBuenaNota ++;
             salvaron ++;
         }
-        acumulaNotas += notaIngresada;
+        
 
         document.querySelector("#pResult").innerHTML = `Alumnos que perdieron:${perdieron}<br> Alumnos que salvaron: ${salvaron}<br> Muy buena nota: ${muyBuenaNota}<br> Promedio de notas: ${acumulaNotas/contAlumnosCargados}<br> Nota maxima: ${maxNota}<br> Nota minima: ${minNota}`
     }else{
