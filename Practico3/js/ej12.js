@@ -10,6 +10,9 @@ function factorial() {
   let inicio = 1;
   let acumuResult = 1;
   let nbrIngresado = Number(document.querySelector("#nbr").value);
+  if(nbrIngresado < 0){
+    nbrIngresado *=-1;
+  }
 
   while (inicio <= nbrIngresado) {
     acumuResult *= inicio;
