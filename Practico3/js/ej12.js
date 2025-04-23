@@ -8,12 +8,12 @@ document.querySelector("#btnShow").addEventListener("click", factorial);
 
 function factorial() {
   let inicio = 1;
-  let result = 1;
+  let acumuResult = 1;
   let nbrIngresado = Number(document.querySelector("#nbr").value);
 
   while (inicio <= nbrIngresado) {
-    result *= inicio;
+    acumuResult *= inicio;
     inicio++;
   }
-  document.querySelector("#pResult").innerHTML = result;
+  document.querySelector("#pResult").innerHTML = acumuResult;
 }
