@@ -4,12 +4,12 @@ document.querySelector("#btnShow").addEventListener("click", mostrarLetra);
 
 function mostrarLetra() {
   let texto = document.querySelector("#txt").value;
-  texto.toLowerCase();
+  texto = texto.toLowerCase();
   let msj = "";
 
   let priLetra = texto.charAt(0);
   let ultLetra = texto.charAt(texto.length - 1);
-  
+
   if (priLetra === ultLetra) {
     msj = `comienza y termina con ${priLetra}`;
   } else {
