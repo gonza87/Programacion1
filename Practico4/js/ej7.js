@@ -2,19 +2,16 @@
 
 document.querySelector("#btnShow").addEventListener("click", newString);
 
-function newString(){
-    let texto = document.querySelector("#txt").value;
-    let textoMinus = texto.toLowerCase();
-    let newString = "";
-    for (let i=0; i<textoMinus.length; i++){
-        if(i === 0){
-             newString += textoMinus.charAt(i).toUpperCase(); 
-            
-
-        }
-        else{
-            newString += textoMinus.charAt(i);
-        }
+function newString() {
+  let texto = document.querySelector("#txt").value;
+  let textoMinus = texto.toLowerCase();
+  let newString = "";
+  for (let i = 0; i < textoMinus.length; i++) {
+    if (i === 0) {
+      newString += textoMinus.charAt(i).toUpperCase();
+    } else {
+      newString += textoMinus.charAt(i);
     }
-    document.querySelector("#pResult").innerHTML = newString;
+  }
+  document.querySelector("#pResult").innerHTML = newString;
 }
