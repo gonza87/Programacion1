@@ -33,10 +33,10 @@ function mostrarDepartamento() {
       msj = `La matricula ${matriculaMayus} perteneces a Canelones`;
       break;
     case "B":
-      msj = `La matricula ${matriculaMayus} perteneces a Rocha`;
+      msj = `La matricula ${matriculaMayus} perteneces a Maldonado`;
       break;
     case "C":
-      msj = `La matricula ${matriculaMayus} perteneces a Maldonado`;
+      msj = `La matricula ${matriculaMayus} perteneces a Rocha`;
       break;
     case "D":
       msj = `La matricula ${matriculaMayus} perteneces a Treinta y Tres`;
