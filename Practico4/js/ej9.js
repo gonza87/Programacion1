@@ -18,33 +18,23 @@ function validarContrasenia() {
 
       if (letra >= 65 && letra <= 90) {
         tieneMayus = true;
-      } /*  else {
-                resultado += "Faltan mayusculas";
-            } */
+      }
 
       if (letra >= 97 && letra <= 122) {
         tieneMinus = true;
-      } /* else {
-                resultado += "Faltan minusculas";
-            } */
+      }
 
       if (letra === 33 || letra === 46 || letra === 35 || letra === 64) {
         caracteresEspeciales = true;
-      } /* else {
-                resultado += "Faltan caracteres especiales";
-            } */
+      }
 
       if (letra !== 32) {
         sinEspacios = true;
-      } /* else {
-                resultado += "No puede tener espacios";
-            } */
+      }
 
       if (letra >= 48 && letra <= 57) {
         tieneNumeros = true;
-      } /* else {
-                resultado += "Faltan numeros";
-            } */
+      }
     }
 
     if (
@@ -54,12 +44,12 @@ function validarContrasenia() {
       sinEspacios &&
       caracteresEspeciales
     ) {
-      resultado = "cumple";
+      resultado = `Cumple contraseña: ${texto}`;
     } else {
-      resultado = "nada";
+      resultado = "No cumple condiciones";
     }
   } else {
-    resultado = "nada";
+    resultado = "No cumple condiciones";
   }
 
   document.querySelector("#pMensaje").innerHTML = resultado;
