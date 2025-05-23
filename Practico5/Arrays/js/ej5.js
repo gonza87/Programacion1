@@ -17,6 +17,11 @@ function recorrerArray() {
     }
   }
 
-  console.log(listFibonacci);
-  document.querySelector("#pResult").innerHTML = listFibonacci;
+listarElementos(listFibonacci)
+}
+
+function listarElementos(){
+  for(let i=0; i < listFibonacci.length; i++){
+    document.querySelector("#pResult").innerHTML += listFibonacci[i] +"<br>";
+  }
 }
