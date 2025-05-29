@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7 - Practico 5</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <label for="txtNombre">Ingrese Nombre</label>
+    <input type="text" id="txtNombre">
+    <label for="nbrEdad">Ingrese edad</label>
+    <input type="number" id="nbrEdad">
+    <label for="txtNacionalidad">Ingrese Nacionalidad</label>
+    <input type="text" id="txtNacionalidad">
+    <input type="button" value="Ingresar Persona" id="btnIngresar">
+    <br>
+    <table style="border-style: solid;">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Nacionalidad</th>
+            </tr>
+        </thead>
+        <tbody id="tablePersona">
+           
+        </tbody>
+    </table>
+    <br>
+     <table style="border-style: solid;">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Nacionalidad</th>
+            </tr>
+        </thead>
+        <tbody id="tablePersonaMayor">
+           
+        </tbody>
+    </table>
+    <br>
+    <input type="button" value="Listar Personas" id="btnListar">
+    <br>
+    <input type="button" value="Listar Mayores" id="btnListarMayores">
+    <script src="./js/ej7/Persona.js"></script>
+    <script src="./js/ej7/Sistema.js"></script>
+    <script src="./js/ej7/ej7.js"></script>
+</body>
+</html>
