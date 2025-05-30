@@ -86,7 +86,7 @@ document
     let generoCampo= Number(document.querySelector("#slcGenero").value);
     let votantesCampo = Number(document.querySelector("#nbrVotantes").value);
     let puntosCampo = Number(document.querySelector("#nbrPuntos").value);
-    if(nombreCampo !== "" && !miSistema.existePelicula(nombreCampo)){
+    if(nombreCampo !== "" && !miSistema.existePelicula(nombreCampo) && generoCampo !== "x"){
         let objGenero= miSistema.devolverObjGenero(generoCampo);
         let objNewPelicula= new Pelicula(nombreCampo,anioCampo,objGenero,votantesCampo,puntosCampo);
         miSistema.crearPelicula(objNewPelicula)
