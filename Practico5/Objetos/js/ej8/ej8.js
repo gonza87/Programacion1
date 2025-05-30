@@ -16,14 +16,14 @@ class Genero {
   }
 }
 
-class Pelicula{
-    constructor(nombre,anio,objGenero,votantes,puntos){
-        this.nombre = nombre,
-        this.anio= anio,
-        this.objGenero = objGenero,
-        this.votantes = votantes,
-        this.puntos = puntos
-    }
+class Pelicula {
+  constructor(nombre, anio, objGenero, votantes, puntos) {
+    (this.nombre = nombre),
+      (this.anio = anio),
+      (this.objGenero = objGenero),
+      (this.votantes = votantes),
+      (this.puntos = puntos);
+  }
 }
 
 class Sistema {
@@ -36,81 +36,115 @@ class Sistema {
     ];
   }
 
-  existePelicula(nombrePelicula){
+  existePelicula(nombrePelicula) {
     let existe = false;
-    for(let i=0; i < this.peliculas.length; i++){
-        let objPelicula= this.peliculas[i];
-        if(objPelicula.nombre === nombrePelicula ){
-            existe=true;
-            break;
-        }
+    for (let i = 0; i < this.peliculas.length; i++) {
+      let objPelicula = this.peliculas[i];
+      if (objPelicula.nombre === nombrePelicula) {
+        existe = true;
+        break;
+      }
     }
     return existe;
-
   }
 
-  crearPelicula(objPelicula){
+  crearPelicula(objPelicula) {
     this.peliculas.push(objPelicula);
   }
 
-  devolverObjGenero(id){
+  devolverObjGenero(id) {
     let objGenero;
-    for(let i =0; i<this.generos.length; i++){
-        if(this.generos[i].id === id){
-            objGenero = this.generos[i];
-            break;
-        }
+    for (let i = 0; i < this.generos.length; i++) {
+      if (this.generos[i].id === id) {
+        objGenero = this.generos[i];
+        break;
+      }
     }
     return objGenero;
   }
 
+  buscarPelicula(textoPelicula) {
+    let pelicula = -1;
+    for (let i = 0; i < this.peliculas.length; i++) {
+      let objPelicula = this.peliculas[i];
+      if (objPelicula.nombre.toLowerCase() === textoPelicula.toLowerCase()) {
+        pelicula = objPelicula;
+        break;
+      }
+    }
+    return pelicula;
+  }
 }
 
 let miSistema = new Sistema();
 
-function armarComboGeneros(){
-    document.querySelector("#slcGenero").innerHTML=`<option value="x">Seleccione</option>`
-    for(let i=0; i < miSistema.generos.length; i++){
-        let objGenero= miSistema.generos[i];
-        document.querySelector("#slcGenero").innerHTML+=`<option value="${objGenero.id}">${objGenero.nombre}</option>`
-    }
+function armarComboGeneros() {
+  document.querySelector(
+    "#slcGenero"
+  ).innerHTML = `<option value="x">Seleccione</option>`;
+  for (let i = 0; i < miSistema.generos.length; i++) {
+    let objGenero = miSistema.generos[i];
+    document.querySelector(
+      "#slcGenero"
+    ).innerHTML += `<option value="${objGenero.id}">${objGenero.nombre}</option>`;
+  }
 }
 armarComboGeneros();
 document
   .querySelector("#btnIngresar")
   .addEventListener("click", ingresarPelicula);
 
-  function ingresarPelicula(){
-    let nombreCampo = document.querySelector("#txtNombre").value.trim();
-    let anioCampo = Number(document.querySelector("#nbrAnio").value);
-    let generoCampo= Number(document.querySelector("#slcGenero").value);
-    let votantesCampo = Number(document.querySelector("#nbrVotantes").value);
-    let puntosCampo = Number(document.querySelector("#nbrPuntos").value);
-    if(nombreCampo !== "" && !miSistema.existePelicula(nombreCampo) && generoCampo !== "x"){
-        let objGenero= miSistema.devolverObjGenero(generoCampo);
-        let objNewPelicula= new Pelicula(nombreCampo,anioCampo,objGenero,votantesCampo,puntosCampo);
-        miSistema.crearPelicula(objNewPelicula)
-        console.log(miSistema.peliculas)
-    }
+function ingresarPelicula() {
+  let nombreCampo = document.querySelector("#txtNombre").value.trim();
+  let anioCampo = Number(document.querySelector("#nbrAnio").value);
+  let generoCampo = Number(document.querySelector("#slcGenero").value);
+  let votantesCampo = Number(document.querySelector("#nbrVotantes").value);
+  let puntosCampo = Number(document.querySelector("#nbrPuntos").value);
+  if (
+    nombreCampo !== "" &&
+    !miSistema.existePelicula(nombreCampo) &&
+    generoCampo !== "x"
+  ) {
+    let objGenero = miSistema.devolverObjGenero(generoCampo);
+    let objNewPelicula = new Pelicula(
+      nombreCampo,
+      anioCampo,
+      objGenero,
+      votantesCampo,
+      puntosCampo
+    );
+    miSistema.crearPelicula(objNewPelicula);
+    console.log(miSistema.peliculas);
   }
+}
 
-  document.querySelector("#btnListar").addEventListener("click", listarPeliculas);
+document.querySelector("#btnListar").addEventListener("click", listarPeliculas);
 
-  function listarPeliculas(){
-    document.querySelector("#tabla").innerHTML="";
-    for(let i=0; i<miSistema.peliculas.length;i++){
-        let objPelicula= miSistema.peliculas[i];
-        if((objPelicula.puntos / objPelicula.votantes) >=4){
-            document.querySelector("#tabla").innerHTML+=`<tr>
+function listarPeliculas() {
+  document.querySelector("#tabla").innerHTML = "";
+  for (let i = 0; i < miSistema.peliculas.length; i++) {
+    let objPelicula = miSistema.peliculas[i];
+    if (objPelicula.puntos / objPelicula.votantes >= 4) {
+      document.querySelector("#tabla").innerHTML += `<tr>
             <td>${objPelicula.nombre}</td>
             <td>${objPelicula.anio}</td>
             <td>${objPelicula.objGenero.nombre}</td>
             <td>${objPelicula.votantes}</td>
             <td>${objPelicula.puntos}</td>
-            </tr>`
-        }
+            </tr>`;
     }
-
   }
+}
 
-
+document.querySelector("#btnBuscar").addEventListener("click", buscarPelicula);
+function buscarPelicula() {
+  let texto = document.querySelector("#txtBuscar").value;
+  let buscarPelicula = miSistema.buscarPelicula(texto);
+  if (buscarPelicula === -1) {
+    document.querySelector("#pResultado").innerHTML = "La pelicula no existe";
+  } else {
+    document.querySelector(
+      "#pResultado"
+    ).innerHTML = `Nombre: ${buscarPelicula.nombre} Apta para Edad: ${buscarPelicula.objGenero.edad}`;
+  }
+}
