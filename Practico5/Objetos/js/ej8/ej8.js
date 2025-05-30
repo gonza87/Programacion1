@@ -53,6 +53,17 @@ class Sistema {
     this.peliculas.push(objPelicula);
   }
 
+  devolverObjGenero(id){
+    let objGenero;
+    for(let i =0; i<this.generos.length; i++){
+        if(this.generos[i].id === id){
+            objGenero = this.generos[i];
+            break;
+        }
+    }
+    return objGenero;
+  }
+
 }
 
 let miSistema = new Sistema();
@@ -72,11 +83,12 @@ document
   function ingresarPelicula(){
     let nombreCampo = document.querySelector("#txtNombre").value.trim();
     let anioCampo = Number(document.querySelector("#nbrAnio").value);
-    let generoCampo= document.querySelector("#slcGenero").value;
+    let generoCampo= Number(document.querySelector("#slcGenero").value);
     let votantesCampo = Number(document.querySelector("#nbrVotantes").value);
     let puntosCampo = Number(document.querySelector("#nbrPuntos").value);
     if(nombreCampo !== "" && !miSistema.existePelicula(nombreCampo)){
-        let objNewPelicula= new Pelicula(nombreCampo,anioCampo,generoCampo,votantesCampo,puntosCampo);
+        let objGenero= miSistema.devolverObjGenero(generoCampo);
+        let objNewPelicula= new Pelicula(nombreCampo,anioCampo,objGenero,votantesCampo,puntosCampo);
         miSistema.crearPelicula(objNewPelicula)
         console.log(miSistema.peliculas)
     }
