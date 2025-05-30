@@ -28,6 +28,9 @@ class Pelicula {
 
 class Sistema {
   constructor() {
+    this.acumuPeliComedia = 0;
+    this.acumuPelidrama = 0;
+    this.acumuPeliFiccion = 0;
     this.peliculas = [];
     this.generos = [
       new Genero(1, "comedia", 20),
@@ -49,7 +52,19 @@ class Sistema {
   }
 
   crearPelicula(objPelicula) {
+    
     this.peliculas.push(objPelicula);
+    
+    if(objPelicula.objGenero.nombre ==="comedia"){
+      this.acumuPeliComedia++
+    }
+    if(objPelicula.objGenero.nombre ==="drama"){
+      this.acumuPelidrama++
+    }
+    else{
+      this.acumuPeliFiccion++
+    }
+    
   }
 
   devolverObjGenero(id) {
@@ -74,6 +89,8 @@ class Sistema {
     }
     return pelicula;
   }
+
+ 
 }
 
 let miSistema = new Sistema();
