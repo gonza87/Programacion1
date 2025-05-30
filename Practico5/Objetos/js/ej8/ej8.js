@@ -93,3 +93,24 @@ document
         console.log(miSistema.peliculas)
     }
   }
+
+  document.querySelector("#btnListar").addEventListener("click", listarPeliculas);
+
+  function listarPeliculas(){
+    document.querySelector("#tabla").innerHTML="";
+    for(let i=0; i<miSistema.peliculas.length;i++){
+        let objPelicula= miSistema.peliculas[i];
+        if((objPelicula.puntos / objPelicula.votantes) >=4){
+            document.querySelector("#tabla").innerHTML+=`<tr>
+            <td>${objPelicula.nombre}</td>
+            <td>${objPelicula.anio}</td>
+            <td>${objPelicula.objGenero.nombre}</td>
+            <td>${objPelicula.votantes}</td>
+            <td>${objPelicula.puntos}</td>
+            </tr>`
+        }
+    }
+
+  }
+
+

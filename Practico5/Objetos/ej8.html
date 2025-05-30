@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercio 8 - Practico Objerots</title>
+    <link rel="stylesheet" href="./css/ej8.css">
 </head>
 <body>
     <label for="txtNombre">Ingrese Nombre de pelicula</label>
@@ -18,10 +19,26 @@
     <label for="nbrVotantes">Ingrese cantidad votantes</label>
     <input type="number" id="nbrVotantes">
     <br>
-    <label for="nbrPuntos">Ingrese puntos totales</label>
+    <label for="nbrPuntos">Ingrese puntos totaless</label>
     <input type="number" id="nbrPuntos">
     <br>
-    <input type="button" id="btnIngresar" value="Ingresar Pelicula">
+    <input class="btn"  type="button" id="btnIngresar" value="Ingresar Pelicula">
+    <br>
+    <input class="btn" type="button" id="btnListar" value="Listar Peliculas">
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Año</th>
+                <th>Genero</th>
+                <th>Votantes</th>
+                <th>Puntos</th>
+            </tr>
+        </thead>
+        <tbody id="tabla">
+
+        </tbody>
+    </table>
     <script src="./js/ej8/ej8.js"></script>
     </body>
 </html>
