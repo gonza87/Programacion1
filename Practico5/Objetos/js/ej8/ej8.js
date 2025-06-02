@@ -11,8 +11,8 @@ d) Crear un nuevo campo de texto en el que se pueda ingresar el nombre de una pe
 e) Crear una tabla que muestre todos los géneros y cuantas peliculas hay de cada género. */
 
 class Genero {
-  constructor(id, nombre, edad) {
-    (this.id = id), (this.nombre = nombre), (this.edad = edad);
+  constructor(id, nombre, edad, pelisAsociadas=0) {
+    (this.id = id), (this.nombre = nombre), (this.edad = edad); this.pelisAsociadas=pelisAsociadas
   }
 }
 
@@ -56,13 +56,13 @@ class Sistema {
     this.peliculas.push(objPelicula);
     
     if(objPelicula.objGenero.nombre ==="comedia"){
-      this.acumuPeliComedia++
+      objPelicula.objGenero.pelisAsociadas++;
     }
     if(objPelicula.objGenero.nombre ==="drama"){
-      this.acumuPelidrama++
+      objPelicula.objGenero.pelisAsociadas++;
     }
-    else{
-      this.acumuPeliFiccion++
+    if(objPelicula.objGenero.nombre ==="ficcion"){
+      objPelicula.objGenero.pelisAsociadas++;
     }
     
   }
@@ -164,4 +164,18 @@ function buscarPelicula() {
       "#pResultado"
     ).innerHTML = `Nombre: ${buscarPelicula.nombre} Apta para Edad: ${buscarPelicula.objGenero.edad}`;
   }
+}
+
+document.querySelector("#btnPelisAsociadas").addEventListener("click", listarPelisAsociadasGenero)
+
+function listarPelisAsociadasGenero(){
+  document.querySelector("#tabla2").innerHTML="";
+  for (let i=0; i< miSistema.generos.length; i++){
+    
+document.querySelector("#tabla2").innerHTML+= `<tr>
+            <td>${miSistema.generos[i].nombre}</td>
+           <td>${miSistema.generos[i].pelisAsociadas}</td>
+            </tr>`
+  }
+  
 }
