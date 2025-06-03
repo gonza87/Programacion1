@@ -11,8 +11,9 @@ d) Crear un nuevo campo de texto en el que se pueda ingresar el nombre de una pe
 e) Crear una tabla que muestre todos los géneros y cuantas peliculas hay de cada género. */
 
 class Genero {
-  constructor(id, nombre, edad, pelisAsociadas=0) {
-    (this.id = id), (this.nombre = nombre), (this.edad = edad); this.pelisAsociadas=pelisAsociadas
+  constructor(id, nombre, edad, pelisAsociadas = 0) {
+    (this.id = id), (this.nombre = nombre), (this.edad = edad);
+    this.pelisAsociadas = pelisAsociadas;
   }
 }
 
@@ -28,9 +29,6 @@ class Pelicula {
 
 class Sistema {
   constructor() {
-    this.acumuPeliComedia = 0;
-    this.acumuPelidrama = 0;
-    this.acumuPeliFiccion = 0;
     this.peliculas = [];
     this.generos = [
       new Genero(1, "comedia", 20),
@@ -52,19 +50,17 @@ class Sistema {
   }
 
   crearPelicula(objPelicula) {
-    
     this.peliculas.push(objPelicula);
-    
-    if(objPelicula.objGenero.nombre ==="comedia"){
+
+    if (objPelicula.objGenero.nombre === "comedia") {
       objPelicula.objGenero.pelisAsociadas++;
     }
-    if(objPelicula.objGenero.nombre ==="drama"){
+    if (objPelicula.objGenero.nombre === "drama") {
       objPelicula.objGenero.pelisAsociadas++;
     }
-    if(objPelicula.objGenero.nombre ==="ficcion"){
+    if (objPelicula.objGenero.nombre === "ficcion") {
       objPelicula.objGenero.pelisAsociadas++;
     }
-    
   }
 
   devolverObjGenero(id) {
@@ -89,8 +85,6 @@ class Sistema {
     }
     return pelicula;
   }
-
- 
 }
 
 let miSistema = new Sistema();
@@ -166,16 +160,16 @@ function buscarPelicula() {
   }
 }
 
-document.querySelector("#btnPelisAsociadas").addEventListener("click", listarPelisAsociadasGenero)
+document
+  .querySelector("#btnPelisAsociadas")
+  .addEventListener("click", listarPelisAsociadasGenero);
 
-function listarPelisAsociadasGenero(){
-  document.querySelector("#tabla2").innerHTML="";
-  for (let i=0; i< miSistema.generos.length; i++){
-    
-document.querySelector("#tabla2").innerHTML+= `<tr>
+function listarPelisAsociadasGenero() {
+  document.querySelector("#tabla2").innerHTML = "";
+  for (let i = 0; i < miSistema.generos.length; i++) {
+    document.querySelector("#tabla2").innerHTML += `<tr>
             <td>${miSistema.generos[i].nombre}</td>
            <td>${miSistema.generos[i].pelisAsociadas}</td>
-            </tr>`
+            </tr>`;
   }
-  
 }
